@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const atributos = require("../Datasets/atributos")
 const proezas = require("../Datasets/proezas")
 const especificacoes = require("../Datasets/especificacoes")
@@ -7,11 +9,11 @@ const knex = require('knex')({
     client: 'pg',
     version: '7.2',
     connection: {
-        host: '127.0.0.1',
-        port: 5432,
-        user: 'postgres',
-        password: 'postgres',
-        database: 'hora_da_aventura'
+        host: process.env.DB_HOST,
+        port: process.env.DB_PORT,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_DATABASE
     }
 });
 
@@ -51,7 +53,7 @@ async function populateDb() {
     return
 }
 
-// cleanup();
-// populateDb();
+cleanup();
+populateDb();
 
 module.exports = knex;
