@@ -2,7 +2,7 @@ const embaralharArray = require("./Funcoes/embaralharArray");
 const Personagem = require("./Classes/Personagem");
 const knex = require("./DB/knex");
 
-async function gerarPersonagem(forte=5, medio=4, fraco=3, minimo=2) {
+async function gerarPersonagem(forte = 5, medio = 4, fraco = 3, minimo = 2) {
     const personagem = new Personagem();
 
     const atributosArray = await knex.select("id", "nome").table('atributos');
@@ -84,4 +84,6 @@ gerarPersonagem()
     .then((char) => {
         console.log(char.atributos)
         console.log(char.proezas)
+        process.exit()
     });
+

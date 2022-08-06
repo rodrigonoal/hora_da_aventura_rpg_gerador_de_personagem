@@ -27,7 +27,7 @@ async function popularDb() {
         await knex("atributos")
             .where("nome", "!=", "")
             .del()
-            
+
         await knex.raw("ALTER SEQUENCE atributos_id_seq RESTART WITH 1; ALTER SEQUENCE proezas_id_seq RESTART WITH 1;")
 
         for (let atributo of atributos) {
@@ -51,4 +51,4 @@ async function popularDb() {
 }
 
 cleanup();
-popularDb();
+popularDb().then(() => process.exit())
