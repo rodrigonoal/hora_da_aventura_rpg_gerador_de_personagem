@@ -4,7 +4,7 @@ const atributos = require("../Datasets/atributos")
 const proezas = require("../Datasets/proezas")
 const especificacoes = require("../Datasets/especificacoes")
 
-function cleanup() {
+const cleanup = () => {
     for (let proeza of proezas) {
         if (proeza.descricao.charAt(proeza.descricao.length - 1) != ".") {
             proeza.descricao = proeza.descricao + "."
@@ -18,7 +18,7 @@ function cleanup() {
     return
 }
 
-async function popularDb() {
+const popularDb = async () => {
     try {
         await knex("proezas")
             .where("nome", "!=", "")

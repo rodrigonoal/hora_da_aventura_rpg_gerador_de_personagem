@@ -65,7 +65,7 @@ const gerarPersonagem = async (forte = 5, medio = 4, fraco = 3, minimo = 2) => {
     }
 
     // Cleanups de proezas e atributos
-    function cleanupProeza(proeza, atributo) {
+    const cleanupProeza = (proeza, atributo) => {
         if (!proeza.magica) {
             delete proeza["magica"];
         }
@@ -81,7 +81,7 @@ const gerarPersonagem = async (forte = 5, medio = 4, fraco = 3, minimo = 2) => {
         delete proeza["atributoid"];
     }
 
-    function cleanupAtributo(atributo) {
+    const cleanupAtributo = (atributo) => {
         delete atributo["id"];
     }
 
