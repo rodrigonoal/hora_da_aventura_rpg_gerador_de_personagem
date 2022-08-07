@@ -14,7 +14,7 @@ npm run gerar
 ## Gerar personagem
 
 Recebe os valores dos três atributos principais do personagem e um valor para atributos secundários.\
-A função pode ser chamada com valores default 5, 4, 3 e 2, conforme os atributos padrões do livro.
+A função pode ser chamada com valores especificados ou default 5, 4, 3 e 2, conforme os atributos padrões do livro.
 
 ### Features
 

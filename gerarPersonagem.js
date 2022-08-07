@@ -65,7 +65,7 @@ const gerarPersonagem = async (forte = 5, medio = 4, fraco = 3, minimo = 2) => {
     }
 
     // Cleanups de proezas e atributos
-    const cleanupProeza = (proeza, atributo) => {
+    function cleanupProeza (proeza, atributo) {
         if (!proeza.magica) {
             delete proeza["magica"];
         }
@@ -81,7 +81,7 @@ const gerarPersonagem = async (forte = 5, medio = 4, fraco = 3, minimo = 2) => {
         delete proeza["atributoid"];
     }
 
-    const cleanupAtributo = (atributo) => {
+    function cleanupAtributo (atributo) {
         delete atributo["id"];
     }
 
@@ -91,14 +91,15 @@ const gerarPersonagem = async (forte = 5, medio = 4, fraco = 3, minimo = 2) => {
 }
 
 const salvarPersonagem = async (personagem) => {
+    const nomeDoArquivo = "./personagensGerados.json"
 
     try {
-        const data = await fs.readFile("./personagensGerados.json");
+        const data = await fs.readFile(nomeDoArquivo);
         const geradosArray = JSON.parse(data);
 
         geradosArray.push(personagem);
 
-        await fs.writeFile("./personagensGerados.json", JSON.stringify(geradosArray));
+        await fs.writeFile(nomeDoArquivo, JSON.stringify(geradosArray));
 
         console.log("Personagem salvo!")
 
